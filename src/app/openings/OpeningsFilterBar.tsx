@@ -41,7 +41,7 @@ export function OpeningsFilterBar({
     const params = new URLSearchParams(sp.toString());
     params.delete('page');
     for (const [k, v] of Object.entries(patch)) {
-      if (v === null || (Array.isArray(v) && v.length === 0) || v === '') {
+      if (v == null || (Array.isArray(v) && v.length === 0) || v === '') {
         params.delete(k);
       } else if (Array.isArray(v)) {
         params.set(k, v.join(','));

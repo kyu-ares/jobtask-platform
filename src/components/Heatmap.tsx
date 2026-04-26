@@ -9,7 +9,7 @@
 
 import { useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { hierarchy, treemap, treemapSquarify } from 'd3-hierarchy';
+import { hierarchy, treemap, treemapSquarify, type HierarchyRectangularNode } from 'd3-hierarchy';
 import type { NcsTree } from '@/lib/ncs/types';
 import {
   buildGroups,
@@ -142,14 +142,13 @@ export function Heatmap({
     const root = hierarchy(data)
       .sum((d) => (d.children ? 0 : d.size))
       .sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
-    treemap<CellNode>()
+    return treemap<CellNode>()
       .tile(treemapSquarify)
       .size([width, height])
       .paddingOuter(3)
       .paddingTop(28)
       .paddingInner(3)
-      .round(true)(root);
-    return root;
+      .round(true)(root) as HierarchyRectangularNode<CellNode>;
   }, [groups, sizeMetric, colorMetric, effectiveGrouping, width, height, leafHrefPattern, leafHrefPrefix]);
 
   function trackMouse(e: React.MouseEvent, data: CellNode, parent?: string) {

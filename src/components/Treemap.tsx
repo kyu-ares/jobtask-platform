@@ -1,7 +1,7 @@
 // 서버 컴포넌트로 동작 가능한 D3 treemap 렌더러
 // 클릭 시 해당 카테고리 페이지로 이동하는 SSR-friendly 구현
 
-import { hierarchy, treemap } from 'd3-hierarchy';
+import { hierarchy, treemap, type HierarchyRectangularNode } from 'd3-hierarchy';
 import Link from 'next/link';
 import type { NcsTree, NcsLclas } from '@/lib/ncs/types';
 
@@ -56,9 +56,9 @@ export function Treemap({
     .sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
 
   const layout = treemap<TreemapNode>().size([width, height]).padding(3).round(true);
-  layout(root);
+  const laidOut = layout(root) as HierarchyRectangularNode<TreemapNode>;
 
-  const leaves = root.leaves();
+  const leaves = laidOut.leaves();
 
   return (
     <svg

@@ -158,7 +158,7 @@ export function KoreaMap({
   const path = useMemo(() => geoPath(projection), [projection]);
 
   // 5) 메타
-  const sidoMeta = sidoFocus ? SIDO_BY_CODE.get(sidoFocus) : null;
+  const sidoMeta = sidoFocus ? SIDO_BY_CODE.get(sidoFocus) ?? null : null;
   const sggFeat = sggFocus ? sggGeo.features.find((f) => f.properties.code === sggFocus) : null;
   const dongFeat = dongFocus ? dongGeo.features.find((f) => f.properties.code === dongFocus) : null;
 

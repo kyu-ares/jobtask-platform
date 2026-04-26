@@ -156,6 +156,6 @@ export function matches(jobCode: string, f: FilterState): boolean {
 
 export function activeAxisKeys(f: FilterState): AxisKey[] {
   return (['employment', 'career', 'education', 'company', 'region'] as AxisKey[]).filter(
-    (k) => (f as Record<string, string[]>)[k]?.length > 0
+    (k) => (f as unknown as Record<string, string[]>)[k]?.length > 0
   );
 }

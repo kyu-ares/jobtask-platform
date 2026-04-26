@@ -5,6 +5,7 @@ import { KoreaMap } from '@/components/KoreaMap';
 import { TopBar } from '@/components/TopBar';
 import { hasOpenings } from '@/lib/openings/load';
 import { loadMapData } from '@/lib/openings/mapStats';
+import type { MapData } from '@/lib/openings/mapStats';
 
 export default function MapPage() {
   const sidoPath = path.join(process.cwd(), 'public', 'korea-sido.geo.json');
@@ -15,12 +16,16 @@ export default function MapPage() {
   const dongGeo = JSON.parse(readFileSync(dongPath, 'utf8'));
 
   const haveLive = hasOpenings();
-  const mapData = haveLive
+  const mapData: MapData = haveLive
     ? loadMapData()
     : {
         bySido: {},
+        bySgg: {},
+        byDong: {},
         sampleBySido: {},
-        totals: { all: 0, active: 0 },
+        sampleBySgg: {},
+        sampleByDong: {},
+        totals: { all: 0, active: 0, sggMatched: 0, dongMatched: 0 },
         fetchedAt: null,
       };
 
