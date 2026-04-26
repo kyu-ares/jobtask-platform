@@ -1,0 +1,36 @@
+{
+  "_note": "임시 시드 — 24개 대분류만. 큐넷 API 키 활성화 후 scripts/fetch-ncs-info.mjs --tree 로 전체 트리 재생성 예정.",
+  "summary": {
+    "lclas": 24,
+    "mclas": 0,
+    "sclas": 0,
+    "subd": 0,
+    "units": 0
+  },
+  "lclas": [
+    { "code": "01", "name": "사업관리", "mclas": [] },
+    { "code": "02", "name": "경영·회계·사무", "mclas": [] },
+    { "code": "03", "name": "금융·보험", "mclas": [] },
+    { "code": "04", "name": "교육·자연·사회과학", "mclas": [] },
+    { "code": "05", "name": "법률·경찰·소방·교도·국방", "mclas": [] },
+    { "code": "06", "name": "보건·의료", "mclas": [] },
+    { "code": "07", "name": "사회복지·종교", "mclas": [] },
+    { "code": "08", "name": "문화·예술·디자인·방송", "mclas": [] },
+    { "code": "09", "name": "운전·운송", "mclas": [] },
+    { "code": "10", "name": "영업판매", "mclas": [] },
+    { "code": "11", "name": "경비·청소", "mclas": [] },
+    { "code": "12", "name": "이용·숙박·여행·오락·스포츠", "mclas": [] },
+    { "code": "13", "name": "음식서비스", "mclas": [] },
+    { "code": "14", "name": "건설", "mclas": [] },
+    { "code": "15", "name": "기계", "mclas": [] },
+    { "code": "16", "name": "재료", "mclas": [] },
+    { "code": "17", "name": "화학·바이오", "mclas": [] },
+    { "code": "18", "name": "섬유·의복", "mclas": [] },
+    { "code": "19", "name": "전기·전자", "mclas": [] },
+    { "code": "20", "name": "정보통신", "mclas": [] },
+    { "code": "21", "name": "식품가공", "mclas": [] },
+    { "code": "22", "name": "인쇄·목재·가구·공예", "mclas": [] },
+    { "code": "23", "name": "환경·에너지·안전", "mclas": [] },
+    { "code": "24", "name": "농림어업", "mclas": [] }
+  ]
+}

@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand — Blaybus */
+  --color-primary: #006CD1;
+  --color-primary-hover: #0055A5;
+  --color-primary-light: #EBF3FF;
+  --color-primary-subtle: #D6E8FF;
+  --color-sky: #7CC8FF;
+
+  /* Neutral */
+  --color-neutral-900: #0A1E3D;
+  --color-neutral-800: #1A1A1A;
+  --color-neutral-700: #333333;
+  --color-neutral-500: #6B7280;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-50: #F9FAFB;
+  --color-white: #FFFFFF;
+
+  /* Semantic (수치 옆에서만) */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-subtle: var(--color-primary-subtle);
+  --color-sky: var(--color-sky);
+
+  --color-ink: var(--color-neutral-800);
+  --color-ink-soft: var(--color-neutral-700);
+  --color-ink-mute: var(--color-neutral-500);
+  --color-ink-faint: var(--color-neutral-300);
+
+  --color-bg: var(--color-white);
+  --color-bg-soft: var(--color-neutral-50);
+  --color-bg-tint: var(--color-primary-light);
+  --color-bg-dark: var(--color-neutral-900);
+
+  --color-line: var(--color-neutral-300);
+  --color-line-soft: var(--color-neutral-100);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+
+  --font-sans: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+html, body {
+  background: var(--color-white);
+  color: var(--color-neutral-800);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-feature-settings: 'ss01', 'ss02', 'cv01', 'tnum';
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* primary 단일색 투명도 그라디언트 (규칙 준수) */
+.bg-hero-light {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(0,108,209,0.10), transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(124,200,255,0.18), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, var(--color-primary-light) 100%);
+}
+
+.bg-hero-dark {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(124,200,255,0.28), transparent 50%),
+    linear-gradient(135deg, #0A1E3D 0%, #006CD1 130%);
+}
+
+/* heatmap cell hover */
+.cell { transition: filter 160ms ease, transform 160ms ease; }
+.cell:hover { filter: brightness(1.06) saturate(1.05); }
+
+/* card lift */
+.card-lift { transition: transform .25s var(--ease-default, ease), box-shadow .25s ease; }
+.card-lift:hover { transform: translateY(-4px); box-shadow: 0 24px 52px rgba(10,30,61,.08); }
